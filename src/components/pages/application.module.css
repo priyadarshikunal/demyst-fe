@@ -1,0 +1,23 @@
+.formContainer {
+    margin-block: 1rem 2rem;
+}
+
+.formContainer input, .formContainer select {
+    width: 32ch;
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    accent-color: var(--color-primary);
+    border-radius:0;
+    border: solid 1px var(--color-secondary);
+    background-color: var(--color-secondary-light);
+}
+
+.formContainer select {
+    width: 35.2ch;
+}
+
+.formContainer input:hover, .formContainer select:hover,
+.formContainer input:focus, .formContainer select:focus{
+    border: solid 1px var(--color-secondary-dark);
+}

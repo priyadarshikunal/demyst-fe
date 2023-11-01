@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@200;400;600&display=swap');
+
+:root {
+    --color-primary: hsl(205deg 100% 8%);
+    --color-secondary: hsl(205deg 100% 55%);
+    --color-secondary-light: hsl(205deg 100% 98%);
+    --color-secondary-dark: hsl(205deg 100% 40%);
+    --color-tertiary: hsl(166deg 72% 60%);
+
+    --color-info: hsl(218deg 89% 61%);
+    --color-info-dark:hsl(218deg 89% 51%);
+
+    --color-success:hsl(174deg 63% 45%);
+    --color-success-dark:hsl(174deg 63% 35%);
+    --color-failure:hsl(355deg 100% 61%);
+    --color-failure-dark:hsl(355deg 100% 51%);
+    --color-warning:hsl(40deg 100% 60%);
+    --color-warning-dark:hsl(40deg 100% 50%);
+}
+
+body {
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Jost', sans-serif;
+    background-image: linear-gradient(to bottom, var(--color-secondary) 0%, var(--color-secondary) 25%, white 25%, white 100%);
+    background-repeat: no-repeat;
+}

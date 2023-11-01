@@ -1,0 +1,14 @@
+.header {
+    width: clamp(500px, 75%, 1100px);
+    color: white;
+    margin: 0 auto;
+}
+
+.header a {
+    display: block;
+    font-weight: 200;
+    font-size: 2.5rem;
+    text-decoration: none;
+    color:white;
+    padding-block: 1.5rem;
+}
