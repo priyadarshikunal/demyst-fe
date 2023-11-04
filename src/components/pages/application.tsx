@@ -3,12 +3,16 @@ import Main from "../blocks/main";
 import {Button, ButtonType} from "../blocks/buttonLink";
 import styles from './application.module.css';
 import {ChangeEvent, MouseEvent, useState} from "react";
+import {useNavigate, useParams} from "react-router-dom";
 
 const Application = () => {
     const [loading, setLoading] = useState(false);
     const [businessId, setBusinessId] = useState("");
     const [loanAmount, setLoanAmount] = useState<number>(0);
     const [accountingProvider, setAccountingProvider] = useState("0");
+    const navigate = useNavigate();
+    const {applicationId} = useParams();
+
     const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const name = e.target.name;
         const value = e.target.value;
@@ -31,12 +35,12 @@ const Application = () => {
         return loading ? 'Loading...' : 'Request Balance Sheet';
     }
 
-    const isButtonDisabled = ():boolean => {
+    const isButtonDisabled = (): boolean => {
         return loading || (!businessId) || (!loanAmount) || (!accountingProvider);
     }
 
-    const handleClick = (e:MouseEvent<HTMLButtonElement>)=>{
-
+    const handleClick = (e: MouseEvent<HTMLButtonElement>) => {
+        navigate(`/review/${applicationId}?businessId=${businessId}&loanAmount=${loanAmount}&accountingProvider=${accountingProvider}`);
     }
 
     return <>
