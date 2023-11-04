@@ -1,17 +1,18 @@
 import Header from "../blocks/header";
 import Main from "../blocks/main";
-import {ButtonLink, ButtonType} from "../blocks/buttonLink";
+import {Button, ButtonType} from "../blocks/buttonLink";
 import styles from './application.module.css';
-import {ChangeEvent, useState} from "react";
+import {ChangeEvent, MouseEvent, useState} from "react";
 
 const Application = () => {
+    const [loading, setLoading] = useState(false);
     const [businessId, setBusinessId] = useState("");
     const [loanAmount, setLoanAmount] = useState<number>(0);
     const [accountingProvider, setAccountingProvider] = useState("0");
-    const handleChange = (e:ChangeEvent<HTMLInputElement|HTMLSelectElement>)=>{
+    const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const name = e.target.name;
         const value = e.target.value;
-        switch (name){
+        switch (name) {
             case 'businessId':
                 setBusinessId(value);
                 return;
@@ -24,6 +25,18 @@ const Application = () => {
             default:
                 console.error(`Invalid event target: ${name}`);
         }
+    }
+
+    const getLabel = (): string => {
+        return loading ? 'Loading...' : 'Request Balance Sheet';
+    }
+
+    const isButtonDisabled = ():boolean => {
+        return loading || (!businessId) || (!loanAmount) || (!accountingProvider);
+    }
+
+    const handleClick = (e:MouseEvent<HTMLButtonElement>)=>{
+
     }
 
     return <>
@@ -54,7 +67,7 @@ const Application = () => {
                     </select>
                 </p>
             </section>
-            <ButtonLink to="/review" type={ButtonType.INFO} label="Request Balance Sheet"/>
+            <Button handler={handleClick} type={ButtonType.INFO} label={getLabel()} disabled={isButtonDisabled()}/>
         </Main>
     </>;
 }

@@ -13,12 +13,14 @@ export interface ButtonLinkProps {
     to: string
     type: ButtonType,
     label: string,
+    disabled?: boolean,
 }
 
 export interface ButtonProps {
     type: ButtonType,
     label: string,
-    handler: (e: MouseEvent<HTMLButtonElement>) => void
+    handler: (e: MouseEvent<HTMLButtonElement>) => void,
+    disabled?: boolean,
 }
 
 const getButtonClassNameByType = (type: ButtonType) => {
@@ -51,11 +53,13 @@ export const ButtonLink = (props: ButtonLinkProps) => {
     }
 
     return <Link className={`${styles.buttonLink} ${getButtonClassNameByType(props.type)}`}
-                 to={props.to}>{props.label}</Link>;
+                 to={props.to}
+                 disabled={props.disabled}>{props.label}</Link>;
 }
 
 export const Button = (props: ButtonProps) => {
     return <button className={`${styles.buttonLink} ${getButtonClassNameByType(props.type)}`}
-                   onClick={props.handler}>{props.label}</button>;
+                   onClick={props.handler}
+                   disabled={props.disabled}>{props.label}</button>;
 }
 

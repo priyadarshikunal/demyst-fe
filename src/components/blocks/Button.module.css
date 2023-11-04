@@ -8,6 +8,11 @@
     transition: background-color 200ms ease-in;
 }
 
+.buttonLink[disabled]{
+    cursor:not-allowed;
+    background-color: #ddd!important;
+}
+
 .buttonLink.info {
     background-color: var(--color-info);
 }
