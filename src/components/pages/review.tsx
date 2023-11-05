@@ -25,9 +25,7 @@ const Review = () => {
 
     function submitApplication() {
         const businessId = query.get('businessId');
-        const loanAmount = query.get('loanAmount');
-        const accountingProvider = query.get('accountingProvider');
-        navigate(`/outcome/${applicationId}?loanAmount=${loanAmount}&businessId=${businessId}&accountingProvider=${accountingProvider}`)
+        navigate(`/outcome/${applicationId}`)
     }
 
     return <>
