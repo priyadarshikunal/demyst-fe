@@ -16,12 +16,12 @@ const Review = () => {
         const businessId = query.get('businessId');
         const loanAmount = query.get('loanAmount');
         const accountingProvider = query.get('accountingProvider');
-        const endpoint = `${SERVICE_ENDPOINT}/balancesheet?loanAmount=${loanAmount}&businessId=${businessId}&accountingProvider=${accountingProvider}`;
+        const endpoint = `${SERVICE_ENDPOINT}/balancesheet/${applicationId}?loanAmount=${loanAmount}&businessId=${businessId}&accountingProvider=${accountingProvider}`;
         fetch(endpoint)
             .then(data => data.json())
             .then(json => setBalanceSheet(json))
             .catch();
-    })
+    },[])
 
     function submitApplication() {
         const businessId = query.get('businessId');
